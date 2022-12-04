@@ -1,0 +1,26 @@
+{
+  "name": "lkusam_adventofcode2022",
+  "version": "1.0.0",
+  "description": "2022 calendar year code challenge using nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./index.js",
+    "install": "npm install",
+    "start": "node ./index.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lkusam/adventofcode2022.git"
+  },
+  "keywords": [
+    "adventofcode",
+    "nodejs"
+  ],
+  "author": "Lakshma Kusam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lkusam/adventofcode2022/issues"
+  },
+  "homepage": "https://github.com/lkusam/adventofcode2022#readme"
+}
