@@ -1,15 +1,13 @@
-import { elf } from "./models/elfs.js";
+import { elf } from "../models/elfs.js";
 
 class elfCalories {
-  elfsSortByCalrories = elfsList.sort((a, b) => {
-    return b.ElfCalories - a.ElfCalories;
-  });
+  elfsSortByCalrories = [];
   constructor(inputData) {
     let allElfs = [];
     let invidualElfCal = [];
 
-    for (let index = 0; index < input.length; index++) {
-      let ele = input[index];
+    for (let index = 0; index < inputData.length; index++) {
+      let ele = inputData[index];
       if (ele != null && ele != "") {
         invidualElfCal.push(parseFloat(ele));
         console.log(ele);
@@ -18,19 +16,21 @@ class elfCalories {
         invidualElfCal = [];
       }
     }
-    let elfsList = [];
+    this.elfsList = [];
     allElfs.forEach((elfData, index) => {
-      elfsList.push(new elf(elfData, index));
+      this.elfsList.push(new elf(elfData, index));
     });
-    console.log(elfsList);
-    this.elfsList;
+    this.elfsSortByCalrories = this.elfsList.sort((a, b) => {
+      return b.ElfCalories - a.ElfCalories;
+    });
+    console.log(this.elfsList);
   }
   get topElfCalories() {
     return this.elfsSortByCalrories[0].ElfCalories;
   }
 
   get topThreeElfCalories() {
-    return elfsSortByCalrories[0].ElfCalories + elfsSortByCalrories[1].ElfCalories + elfsSortByCalrories[2].ElfCalories;
+    return this.elfsSortByCalrories[0].ElfCalories + this.elfsSortByCalrories[1].ElfCalories + this.elfsSortByCalrories[2].ElfCalories;
   }
 }
 
