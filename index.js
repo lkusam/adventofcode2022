@@ -1,4 +1,4 @@
-import { elf } from "./models/elfs.js";
+import { elfCalories } from "./scripts/elfCalories.js";
 
 let input = [1000, 2000, 3000, , 4000, , 5000, 6000, , 7000, 8000, 9000, , 10000];
 let adventStr = `17998
@@ -2239,36 +2239,9 @@ let adventStr = `17998
 10054
 13688`;
 input = adventStr.split("\n");
-console.log(process.argv);
-function getElfData() {
-  let allElfs = [];
-  let invidualElfCal = [];
 
-  for (let index = 0; index < input.length; index++) {
-    let ele = input[index];
-    if (ele != null && ele != "") {
-      invidualElfCal.push(parseFloat(ele));
-      console.log(ele);
-    } else {
-      allElfs.push(invidualElfCal);
-      invidualElfCal = [];
-    }
-  }
-  let elfsList = [];
-  allElfs.forEach((elfData, index) => {
-    elfsList.push(new elf(elfData, index));
-  });
-  console.log(elfsList);
-  return elfsList;
-}
+let elfsinfo = new elfCalories(input);
 
-let elfsinfo = getElfData();
-console.log(elfsinfo[0].ElfCalories);
-let elfsSortByCalrories = elfsinfo.sort((a, b) => {
-  return b.ElfCalories - a.ElfCalories;
-});
+console.log("Highest ca rrying elf Name :" + elfsinfo.topElfCalories);
+console.log("Highest ca rrying elf calroies :" + elfsinfo.topThreeElfCalories);
 
-console.log("Highest ca rrying elf Name :" + elfsSortByCalrories[0].Name);
-console.log("Highest ca rrying elf calroies :" + elfsSortByCalrories[0].ElfCalories);
-
-console.log("Total Calories carried by top 3 Elfs : " + elfsSortByCalrories[0].ElfCalories + elfsSortByCalrories[0].ElfCalories + elfsSortByCalrories[0].ElfCalories);
