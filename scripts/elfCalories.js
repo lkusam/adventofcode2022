@@ -10,7 +10,6 @@ class elfCalories {
       let ele = inputData[index];
       if (ele != null && ele != "") {
         invidualElfCal.push(parseFloat(ele));
-        console.log(ele);
       } else {
         allElfs.push(invidualElfCal);
         invidualElfCal = [];
@@ -23,7 +22,6 @@ class elfCalories {
     this.elfsSortByCalrories = this.elfsList.sort((a, b) => {
       return b.ElfCalories - a.ElfCalories;
     });
-    console.log(this.elfsList);
   }
   get topElfCalories() {
     return this.elfsSortByCalrories[0].ElfCalories;
